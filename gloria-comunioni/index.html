@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang=it data-r="../"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noindex,nofollow"><link rel=icon href="data:,"><title>Gloria - Comunioni</title><style>
+html{color-scheme:light dark;--c:#b0201a;--bg:#fff;--fg:#151515;-webkit-text-size-adjust:100%;
+ font:17px/1.3 system-ui,sans-serif;font:calc(clamp(17px,4.2vw,24px)*var(--z,1))/1.3 system-ui,-apple-system,sans-serif}
+@media(prefers-color-scheme:dark){html{--c:#ff8a7a;--bg:#121212;--fg:#e6e6e6}}
+body{max-width:36em;margin:auto;padding:0 .7em 1em;background:var(--bg);color:var(--fg)}
+a{color:inherit}h1{font-size:1.35em;line-height:1.2;margin:.5em 0 .15em}h2{font-size:1.05em;margin:1.2em 0 .3em}
+.m{font-size:.8em;opacity:.8;margin:0 0 .8em}
+.l{padding-left:1em;text-indent:-1em}.c{display:inline-block;text-indent:0}
+.c::before{content:attr(data-c);display:block;width:0;white-space:nowrap;color:var(--c);
+ font:700 .85em/1.1 system-ui,sans-serif}
+.x::before{width:auto;padding-right:.3em}
+.c::after{content:"\200b"}.a .c::after{content:none}.w{display:inline-block;text-indent:0}
+.r{margin-left:1.2em}.t{font-weight:700;margin-top:.3em}.k{font-style:italic;opacity:.8}
+.g{font-weight:700;font-size:.85em;word-spacing:.4em}
+b,strong{color:var(--c)}b{white-space:nowrap}
+.nc .c::before,.nc .a,.nc .h{display:none}.nc [data-x=a]{opacity:.5;text-decoration:line-through}
+.bar{position:sticky;top:0;z-index:1;display:flex;flex-wrap:wrap;align-items:center;padding:6px 0;
+ background:var(--bg);border-bottom:1px solid #8884;font:14px/1.2 system-ui,sans-serif}
+.bar a,.bar button{color:inherit;background:none;border:1px solid #8888;border-radius:6px;padding:8px 6px;
+ font:inherit;text-decoration:none;touch-action:manipulation}
+.bar a{margin-right:auto}.bar button,.bar b{margin-left:4px}
+.bar b{display:inline-block;min-width:2.2em;text-align:center}
+input{box-sizing:border-box;width:100%;font:17px system-ui,sans-serif;padding:.4em;margin:.3em 0}
+ul{list-style:none;padding:0;margin:0}
+li a{display:block;padding:.35em 0;border-bottom:1px solid #8883;text-decoration:none}
+footer{margin-top:2em;font-size:.75em;opacity:.6}
+.lib{font-weight:700;margin:-.4em 0 .8em}.lib span{display:block}.ls .lib span,#nol{display:none}
+.ls .lib .on,.ls #nol.on{display:block}
+#lib label{display:block;padding:.3em 0}#lib input{width:auto;margin-right:.5em}
+</style><script>
+var d=document.documentElement,st={},wl;
+try{st=JSON.parse(localStorage.getItem('canti'))||{}}catch(e){}
+function show(){d.className=(st.nc?'nc':'')+(st.lib?' ls':'');d.style.setProperty('--z',st.z||1)}
+function save(){try{localStorage.setItem('canti',JSON.stringify(st))}catch(e){}}
+show();
+function lock(){if(!wl&&navigator.wakeLock&&document.visibilityState=='visible')navigator.wakeLock.request('screen')
+ .then(function(l){wl=l;l.onrelease=function(){wl=null}},function(){})}
+if('serviceWorker'in navigator&&location.protocol=='https:')addEventListener('load',function(){
+ navigator.serviceWorker.register(d.getAttribute('data-r')+'sw.js').catch(function(){})});
+document.addEventListener('DOMContentLoaded',function(){
+ var q=document.getElementById('q'),li=document.querySelectorAll('[data-i]'),ch=document.querySelectorAll('.c,b'),t=0,i;
+ if(q)q.oninput=function(){
+  var v=q.value.toLowerCase().normalize('NFD').replace(/[^a-z0-9 ]/g,'').replace(/ +/g,' ');
+  document.getElementById('m').hidden=!!v;
+  for(i=0;i<li.length;i++)li[i].hidden=li[i].getAttribute('data-i').indexOf(v)<0};
+ var sp=document.querySelectorAll('.lib [data-l]'),cb=document.querySelectorAll('[data-lib]'),k=0;
+ for(i=0;i<sp.length;i++)if(!st.lib||st.lib.indexOf(sp[i].getAttribute('data-l'))>=0){sp[i].className='on';k++}
+ if(st.lib&&!k&&document.getElementById('nol'))document.getElementById('nol').className='on';
+ for(i=0;i<cb.length;i++){cb[i].checked=!!st.lib&&st.lib.indexOf(cb[i].getAttribute('data-lib'))>=0;
+  cb[i].onchange=function(){var s=[],j;for(j=0;j<cb.length;j++)if(cb[j].checked)s.push(cb[j].getAttribute('data-lib'));
+   st.lib=s.length?s:undefined;save();show()}}
+ if(!window.T)return;
+ lock();document.addEventListener('visibilitychange',lock);
+ for(i=0;i<ch.length;i++)ch[i].o=ch[i].getAttribute('data-c')||ch[i].textContent;
+ document.addEventListener('click',function(e){
+  var x=e.target.getAttribute&&e.target.getAttribute('data-x');
+  lock();
+  if(x=='a')st.nc=!st.nc;
+  else if(x=='zm'||x=='zp')st.z=Math.min(2,Math.max(.7,Math.round((st.z||1)*10+(x=='zp'?1:-1))/10));
+  else if(x=='m'||x=='p'){
+   t=(t+(x=='p'?1:11))%12;
+   for(i=0;i<ch.length;i++){var c=ch[i],v=T[c.o];if(v)c.tagName=='B'?c.textContent=v[t]:c.setAttribute('data-c',v[t])}
+   return}
+  else return;
+  save();show()})});
+</script><script>T={"(Fa#-)": ["(Fa#-)", "(Sol-)", "(Lab-)", "(La-)", "(Sib-)", "(Si-)", "(Do-)", "(Do#-)", "(Re-)", "(Mib-)", "(Mi-)", "(Fa-)"], "Do#-": ["Do#-", "Re-", "Mib-", "Mi-", "Fa-", "Fa#-", "Sol-", "Sol#-", "La-", "Sib-", "Si-", "Do-"], "Do#-7": ["Do#-7", "Re-7", "Mib-7", "Mi-7", "Fa-7", "Fa#-7", "Sol-7", "Sol#-7", "La-7", "Sib-7", "Si-7", "Do-7"], "Fa#-": ["Fa#-", "Sol-", "Lab-", "La-", "Sib-", "Si-", "Do-", "Do#-", "Re-", "Mib-", "Mi-", "Fa-"], "Fa#7": ["Fa#7", "Sol7", "Lab7", "La7", "Sib7", "Si7", "Do7", "Do#7", "Re7", "Mib7", "Mi7", "Fa7"], "La": ["La", "Sib", "Si", "Do", "Reb", "Re", "Mib", "Mi", "Fa", "Solb", "Sol", "Lab"], "Mi": ["Mi", "Fa", "Solb", "Sol", "Lab", "La", "Sib", "Si", "Do", "Reb", "Re", "Mib"], "Re": ["Re", "Mib", "Mi", "Fa", "Solb", "Sol", "Lab", "La", "La#", "Si", "Do", "Reb"], "Si": ["Si", "Do", "Reb", "Re", "Mib", "Mi", "Fa", "Fa#", "Sol", "Lab", "La", "Sib"], "Si4": ["Si4", "Do4", "Reb4", "Re4", "Mib4", "Mi4", "Fa4", "Fa#4", "Sol4", "Lab4", "La4", "Sib4"], "Sol#-": ["Sol#-", "La-", "Sib-", "Si-", "Do-", "Do#-", "Re-", "Re#-", "Mi-", "Fa-", "Fa#-", "Sol-"], "Sol#-7": ["Sol#-7", "La-7", "Sib-7", "Si-7", "Do-7", "Do#-7", "Re-7", "Re#-7", "Mi-7", "Fa-7", "Fa#-7", "Sol-7"]}</script></head>
+<body>
+<nav class=bar><a href="../">← Indice</a><button data-x=a aria-label="Mostra o nascondi gli accordi">Accordi</button><span class=h><button data-x=m aria-label="Giù di mezzo tono">−½</button><b>Mi</b><button data-x=p aria-label="Su di mezzo tono">+½</button></span><button data-x=zm aria-label="Testo più piccolo">A−</button><button data-x=zp aria-label="Testo più grande">A+</button></nav>
+<h1>Gloria - Comunioni</h1>
+<p class=m>Tonalità Mi · Gloria<br><a href="gloria-comunioni.pdf">Scarica PDF</a></p>
+<p class=lib><span data-l="collebeato">Libretto Collebeato · n. 116 · pag. 38</span><span id=nol>Non è nei tuoi libretti · <a href="../#lib">scegli</a></span></p>
+<div class="k a">Intro: <b>Mi</b> <b>Si</b> <b>La</b> <b>Si4</b></div>
+<br>
+<div class=t>Rit.</div>
+<div class="l r">Gloria a <span class=w><span class=c data-c="Mi">Dio</span> nell'alto</span> dei <span class="c x" data-c="Si">cieli,</span></div>
+<div class="l r">pace in <span class=w><span class="c x" data-c="La"></span><span class=c data-c="(Fa#-)">terra</span> agli</span> uomini di <span class=c data-c="Mi">buona</span> <span class=w>volon<span class="c x" data-c="Si">tà.</span></span></div>
+<div class="l r">Gloria a <span class=w><span class=c data-c="Mi">Dio</span> nell'alto</span> dei <span class=w><span class=c data-c="Si">cieli,</span> pace</span> in <span class=w><span class="c x" data-c="La">ter</span><span class="c x" data-c="Si">ra.</span><span class=c data-c="Mi"></span> (2 v.)</span></div>
+<div class="k">* La solo le prime 2 volte, poi Fa#-</div>
+<br>
+<div class="l">Ti <span class=w>lo<span class=c data-c="Do#-7">diamo,</span> ti</span> <span class=w>benedi<span class=c data-c="Sol#-">ciamo,</span></span> ti <span class=w>ado<span class=c data-c="La">riamo,</span></span> ti <span class=w>glorifi<span class="c x" data-c="Mi">chia</span><span class="c x" data-c="Si">mo.</span></span></div>
+<div class="l">Noi <span class=w><span class=c data-c="Do#-7">ti</span> rendiamo</span> <span class=c data-c="Sol#-">grazie</span> per la <span class="c x" data-c="La">Tua</span> <span class=c data-c="Fa#-">gloria</span> <span class=w>im<span class=c data-c="Si">mensa,</span></span></div>
+<div class="l"><span class=w>Si<span class=c data-c="Sol#-7">gnore,</span> Re</span> del <span class=w><span class=c data-c="Do#-7">cielo,</span> Dio</span> <span class=c data-c="Re">Padre</span> <span class=w>onnipo<span class=c data-c="Si">tente.</span></span></div>
+<br>
+<div class=t>Rit.</div>
+<div class="l r">Gloria a <span class=w><span class=c data-c="Mi">Dio</span> nell'alto</span> dei <span class="c x" data-c="Si">cieli,</span></div>
+<div class="l r">pace in <span class=w><span class="c x" data-c="La"></span><span class=c data-c="(Fa#-)">terra</span> agli</span> uomini di <span class=c data-c="Mi">buona</span> <span class=w>volon<span class="c x" data-c="Si">tà.</span></span></div>
+<div class="l r">Gloria a <span class=w><span class=c data-c="Mi">Dio</span> nell'alto</span> dei <span class=w><span class=c data-c="Si">cieli,</span> pace</span> in <span class=w><span class="c x" data-c="La">ter</span><span class="c x" data-c="Si">ra.</span><span class=c data-c="Mi"></span> (2 v.)</span></div>
+<br>
+<div class="l"><span class=w>Si<span class=c data-c="Do#-7">gnore,</span> Figlio</span> <span class=w>uni<span class=c data-c="Sol#-">genito,</span></span> Gesù <span class=c data-c="La">Cristo,</span> Signore <span class=w><span class="c x" data-c="Mi">Dio,</span><span class="c x" data-c="Si"></span></span></div>
+<div class="l"><span class=w>A<span class=c data-c="Do#-7">gnello</span> di</span> <span class="c x" data-c="Sol#-">Dio,</span> <span class=w><span class="c x" data-c="La">Fi</span><span class=c data-c="Fa#-">glio</span> del</span> <span class=c data-c="Si">Padre,</span></div>
+<div class="l">tu che <span class=w><span class=c data-c="Sol#-">togli</span> i peccati</span> del <span class=c data-c="Do#-">mondo,</span> <span class=w><span class=c data-c="Re">abbi</span> pietà</span> di <span class="c x" data-c="Si">noi.</span></div>
+<br>
+<div class=t>Rit.</div>
+<div class="l r">Gloria a <span class=w><span class=c data-c="Mi">Dio</span> nell'alto</span> dei <span class="c x" data-c="Si">cieli,</span></div>
+<div class="l r">pace in <span class=w><span class="c x" data-c="La"></span><span class=c data-c="(Fa#-)">terra</span> agli</span> uomini di <span class=c data-c="Mi">buona</span> <span class=w>volon<span class="c x" data-c="Si">tà.</span></span></div>
+<div class="l r">Gloria a <span class=w><span class=c data-c="Mi">Dio</span> nell'alto</span> dei <span class=w><span class=c data-c="Si">cieli,</span> pace</span> in <span class=w><span class="c x" data-c="La">ter</span><span class="c x" data-c="Si">ra.</span><span class=c data-c="Mi"></span> (2 v.)</span></div>
+<br>
+<div class="l">Tu che <span class=w><span class=c data-c="Do#-">togli</span> i peccati</span> del <span class=c data-c="Sol#-">mondo,</span></div>
+<div class="l"><span class=w>ac<span class=c data-c="La">cogli</span> la</span> nostra <span class=w><span class=c data-c="Mi">suppli</span><span class="c x" data-c="Si">ca.</span></span></div>
+<div class="l">Tu che <span class=w><span class=c data-c="Sol#-">siedi</span> alla</span> destra del <span class="c x" data-c="Do#-7">Padre,</span> <span class=w><span class=c data-c="Re">abbi</span> pietà</span> di <span class="c x" data-c="Si">noi.</span></div>
+<br>
+<div class=t>Rit.</div>
+<div class="l r">Gloria a <span class=w><span class=c data-c="Mi">Dio</span> nell'alto</span> dei <span class="c x" data-c="Si">cieli,</span></div>
+<div class="l r">pace in <span class=w><span class="c x" data-c="La"></span><span class=c data-c="(Fa#-)">terra</span> agli</span> uomini di <span class=c data-c="Mi">buona</span> <span class=w>volon<span class="c x" data-c="Si">tà.</span></span></div>
+<div class="l r">Gloria a <span class=w><span class=c data-c="Mi">Dio</span> nell'alto</span> dei <span class=w><span class=c data-c="Si">cieli,</span> pace</span> in <span class=w><span class="c x" data-c="La">ter</span><span class="c x" data-c="Si">ra.</span><span class=c data-c="Mi"></span> (2 v.)</span></div>
+<br>
+<div class="l"><span class=w>Per<span class=c data-c="Do#-7">ché</span> tu solo</span> il <span class=c data-c="Sol#-">Santo,</span> tu <span class=w><span class=c data-c="La">solo</span> il</span> <span class=w>Si<span class="c x" data-c="Mi">gno</span><span class="c x" data-c="Si">re,</span></span></div>
+<div class="l">tu <span class=w><span class=c data-c="Do#-7">solo</span> l'Al<span class=c data-c="Sol#-">tissimo,</span></span> <span class=w><span class="c x" data-c="La">Ge</span><span class="c x" data-c="Fa#-">sù Cri</span><span class="c x" data-c="Si">sto,</span></span></div>
+<div class="l">con lo <span class=c data-c="Sol#-">Spirito</span> <span class=c data-c="Do#-">Santo,</span> nella <span class=c data-c="Re">gloria</span> di Dio <span class=c data-c="Si">Padre.</span></div>
+<br>
+<div class=t>Rit. 2 v.</div>
+<div class="l r">Gloria a <span class=w><span class=c data-c="Mi">Dio</span> nell'alto</span> dei <span class="c x" data-c="Si">cieli,</span></div>
+<div class="l r">pace in <span class=w><span class="c x" data-c="La"></span><span class=c data-c="(Fa#-)">terra</span> agli</span> uomini di <span class=c data-c="Mi">buona</span> <span class=w>volon<span class="c x" data-c="Si">tà.</span></span></div>
+<div class="l r">Gloria a <span class=w><span class=c data-c="Mi">Dio</span> nell'alto</span> dei <span class=w><span class=c data-c="Si">cieli,</span> pace</span> in <span class=w><span class="c x" data-c="La">ter</span><span class="c x" data-c="Si">ra.</span><span class=c data-c="Mi"></span> (2 v.)</span></div>
+<div class="k a">Finale: <b>Fa#7</b> <b>Si</b> <b>Mi</b></div>
+<footer>Testi e musiche dei rispettivi autori · uso liturgico</footer>
+</body></html>

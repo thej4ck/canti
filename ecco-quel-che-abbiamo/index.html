@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang=it data-r="../"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noindex,nofollow"><link rel=icon href="data:,"><title>Ecco quel che abbiamo</title><style>
+html{color-scheme:light dark;--c:#b0201a;--bg:#fff;--fg:#151515;-webkit-text-size-adjust:100%;
+ font:17px/1.3 system-ui,sans-serif;font:calc(clamp(17px,4.2vw,24px)*var(--z,1))/1.3 system-ui,-apple-system,sans-serif}
+@media(prefers-color-scheme:dark){html{--c:#ff8a7a;--bg:#121212;--fg:#e6e6e6}}
+body{max-width:36em;margin:auto;padding:0 .7em 1em;background:var(--bg);color:var(--fg)}
+a{color:inherit}h1{font-size:1.35em;line-height:1.2;margin:.5em 0 .15em}h2{font-size:1.05em;margin:1.2em 0 .3em}
+.m{font-size:.8em;opacity:.8;margin:0 0 .8em}
+.l{padding-left:1em;text-indent:-1em}.c{display:inline-block;text-indent:0}
+.c::before{content:attr(data-c);display:block;width:0;white-space:nowrap;color:var(--c);
+ font:700 .85em/1.1 system-ui,sans-serif}
+.x::before{width:auto;padding-right:.3em}
+.c::after{content:"\200b"}.a .c::after{content:none}.w{display:inline-block;text-indent:0}
+.r{margin-left:1.2em}.t{font-weight:700;margin-top:.3em}.k{font-style:italic;opacity:.8}
+.g{font-weight:700;font-size:.85em;word-spacing:.4em}
+b,strong{color:var(--c)}b{white-space:nowrap}
+.nc .c::before,.nc .a,.nc .h{display:none}.nc [data-x=a]{opacity:.5;text-decoration:line-through}
+.bar{position:sticky;top:0;z-index:1;display:flex;flex-wrap:wrap;align-items:center;padding:6px 0;
+ background:var(--bg);border-bottom:1px solid #8884;font:14px/1.2 system-ui,sans-serif}
+.bar a,.bar button{color:inherit;background:none;border:1px solid #8888;border-radius:6px;padding:8px 6px;
+ font:inherit;text-decoration:none;touch-action:manipulation}
+.bar a{margin-right:auto}.bar button,.bar b{margin-left:4px}
+.bar b{display:inline-block;min-width:2.2em;text-align:center}
+input{box-sizing:border-box;width:100%;font:17px system-ui,sans-serif;padding:.4em;margin:.3em 0}
+ul{list-style:none;padding:0;margin:0}
+li a{display:block;padding:.35em 0;border-bottom:1px solid #8883;text-decoration:none}
+footer{margin-top:2em;font-size:.75em;opacity:.6}
+.lib{font-weight:700;margin:-.4em 0 .8em}.lib span{display:block}.ls .lib span,#nol{display:none}
+.ls .lib .on,.ls #nol.on{display:block}
+#lib label{display:block;padding:.3em 0}#lib input{width:auto;margin-right:.5em}
+</style><script>
+var d=document.documentElement,st={},wl;
+try{st=JSON.parse(localStorage.getItem('canti'))||{}}catch(e){}
+function show(){d.className=(st.nc?'nc':'')+(st.lib?' ls':'');d.style.setProperty('--z',st.z||1)}
+function save(){try{localStorage.setItem('canti',JSON.stringify(st))}catch(e){}}
+show();
+function lock(){if(!wl&&navigator.wakeLock&&document.visibilityState=='visible')navigator.wakeLock.request('screen')
+ .then(function(l){wl=l;l.onrelease=function(){wl=null}},function(){})}
+if('serviceWorker'in navigator&&location.protocol=='https:')addEventListener('load',function(){
+ navigator.serviceWorker.register(d.getAttribute('data-r')+'sw.js').catch(function(){})});
+document.addEventListener('DOMContentLoaded',function(){
+ var q=document.getElementById('q'),li=document.querySelectorAll('[data-i]'),ch=document.querySelectorAll('.c,b'),t=0,i;
+ if(q)q.oninput=function(){
+  var v=q.value.toLowerCase().normalize('NFD').replace(/[^a-z0-9 ]/g,'').replace(/ +/g,' ');
+  document.getElementById('m').hidden=!!v;
+  for(i=0;i<li.length;i++)li[i].hidden=li[i].getAttribute('data-i').indexOf(v)<0};
+ var sp=document.querySelectorAll('.lib [data-l]'),cb=document.querySelectorAll('[data-lib]'),k=0;
+ for(i=0;i<sp.length;i++)if(!st.lib||st.lib.indexOf(sp[i].getAttribute('data-l'))>=0){sp[i].className='on';k++}
+ if(st.lib&&!k&&document.getElementById('nol'))document.getElementById('nol').className='on';
+ for(i=0;i<cb.length;i++){cb[i].checked=!!st.lib&&st.lib.indexOf(cb[i].getAttribute('data-lib'))>=0;
+  cb[i].onchange=function(){var s=[],j;for(j=0;j<cb.length;j++)if(cb[j].checked)s.push(cb[j].getAttribute('data-lib'));
+   st.lib=s.length?s:undefined;save();show()}}
+ if(!window.T)return;
+ lock();document.addEventListener('visibilitychange',lock);
+ for(i=0;i<ch.length;i++)ch[i].o=ch[i].getAttribute('data-c')||ch[i].textContent;
+ document.addEventListener('click',function(e){
+  var x=e.target.getAttribute&&e.target.getAttribute('data-x');
+  lock();
+  if(x=='a')st.nc=!st.nc;
+  else if(x=='zm'||x=='zp')st.z=Math.min(2,Math.max(.7,Math.round((st.z||1)*10+(x=='zp'?1:-1))/10));
+  else if(x=='m'||x=='p'){
+   t=(t+(x=='p'?1:11))%12;
+   for(i=0;i<ch.length;i++){var c=ch[i],v=T[c.o];if(v)c.tagName=='B'?c.textContent=v[t]:c.setAttribute('data-c',v[t])}
+   return}
+  else return;
+  save();show()})});
+</script><script>T={"Do#-": ["Do#-", "Re-", "Re#-", "Mi-", "Fa-", "Fa#-", "Sol-", "Sol#-", "La-", "Sib-", "Si-", "Do-"], "Do#-7": ["Do#-7", "Re-7", "Re#-7", "Mi-7", "Fa-7", "Fa#-7", "Sol-7", "Sol#-7", "La-7", "Sib-7", "Si-7", "Do-7"], "Do#-7b5": ["Do#-7b5", "Re-7b5", "Re#-7b5", "Mi-7b5", "Fa-7b5", "Fa#-7b5", "Sol-7b5", "Sol#-7b5", "La-7b5", "Sib-7b5", "Si-7b5", "Do-7b5"], "Fa#": ["Fa#", "Sol", "Sol#", "La", "Sib", "Si", "Do", "Do#", "Re", "Mib", "Mi", "Fa"], "Fa#-": ["Fa#-", "Sol-", "Sol#-", "La-", "Sib-", "Si-", "Do-", "Do#-", "Re-", "Mib-", "Mi-", "Fa-"], "Fa#4": ["Fa#4", "Sol4", "Sol#4", "La4", "Sib4", "Si4", "Do4", "Do#4", "Re4", "Mib4", "Mi4", "Fa4"], "La": ["La", "Sib", "Si", "Do", "Reb", "Re", "Mib", "Mi", "Fa", "Solb", "Sol", "Lab"], "La7+": ["La7+", "Sib7+", "Si7+", "Do7+", "Reb7+", "Re7+", "Mib7+", "Mi7+", "Fa7+", "Solb7+", "Sol7+", "Lab7+"], "Mi": ["Mi", "Fa", "Fa#", "Sol", "Lab", "La", "Sib", "Si", "Do", "Reb", "Re", "Mib"], "Mi4": ["Mi4", "Fa4", "Fa#4", "Sol4", "Lab4", "La4", "Sib4", "Si4", "Do4", "Reb4", "Re4", "Mib4"], "Re": ["Re", "Mib", "Mi", "Fa", "Solb", "Sol", "Lab", "La", "Sib", "Si", "Do", "Reb"], "Re7+": ["Re7+", "Mib7+", "Mi7+", "Fa7+", "Solb7+", "Sol7+", "Lab7+", "La7+", "Sib7+", "Si7+", "Do7+", "Reb7+"], "Si-": ["Si-", "Do-", "Do#-", "Re-", "Mib-", "Mi-", "Fa-", "Fa#-", "Sol-", "Lab-", "La-", "Sib-"]}</script></head>
+<body>
+<nav class=bar><a href="../">← Indice</a><button data-x=a aria-label="Mostra o nascondi gli accordi">Accordi</button><span class=h><button data-x=m aria-label="Giù di mezzo tono">−½</button><b>La</b><button data-x=p aria-label="Su di mezzo tono">+½</button></span><button data-x=zm aria-label="Testo più piccolo">A−</button><button data-x=zp aria-label="Testo più grande">A+</button></nav>
+<h1>Ecco quel che abbiamo</h1>
+<p class=m>Tonalità La · Offertorio<br><a href="ecco-quel-che-abbiamo.pdf">Scarica PDF</a></p>
+<p class=lib><span data-l="collebeato">Libretto Collebeato · n. 98 · pag. 33</span><span id=nol>Non è nei tuoi libretti · <a href="../#lib">scegli</a></span></p>
+<div class="k">Intro</div>
+<div class="g a"><b>La</b> . <b>La7+</b> . | <b>Re</b> . <b>La</b> . | <b>Fa#-</b> . <b>Re</b> . | <b>Mi4</b> . <b>Mi</b> . |</div>
+<br>
+<div class=t>Rit.</div>
+<div class="l r"><span class=c data-c="La">Ecco</span> quel che <span class=w>ab<span class=c data-c="La7+">biamo</span> nulla</span> <span class=w><span class=c data-c="Re">ci</span> appartiene</span> <span class=w>or<span class="c x" data-c="La">mai</span></span></div>
+<div class="l r">ecco i <span class=w><span class=c data-c="Fa#-">frutti</span> della</span> <span class=w><span class=c data-c="Do#-7">terra</span> che</span> tu <span class=w><span class=c data-c="Re">moltipliche</span><span class="c x" data-c="Mi">rai.</span></span></div>
+<div class="l r"><span class=c data-c="La">Ecco</span> queste <span class=w><span class=c data-c="La7+">mani,</span> puoi</span> <span class=c data-c="Re">usarle</span> se lo <span class="c x" data-c="La">vuoi</span></div>
+<div class="l r">per <span class=w>di<span class=c data-c="Fa#-">videre</span></span> nel <span class=c data-c="Do#-7">mondo</span> il pane <span class=w><span class=c data-c="Re">che</span> tu</span> hai <span class=w><span class=c data-c="Mi">dato</span> a</span> <span class="c x" data-c="La">noi.</span></div>
+<br>
+<div class="l"><span class=w><span class=c data-c="Fa#-">Solo</span> una</span> goccia hai messo <span class=w><span class=c data-c="Do#-">fra</span> le mani</span> mie</div>
+<div class="l"><span class=w><span class=c data-c="Do#-7b5">solo</span> una goccia</span> che <span class=w><span class=c data-c="Fa#4">tu</span> ora chiedi</span> <span class=w><span class=c data-c="Fa#">a</span> me,</span> <span class="c x" data-c="Si-">ah</span> <span class="c x" data-c="Mi">ah</span> <span class="c x" data-c="Do#-">ah</span> <span class="c x" data-c="Fa#4">ah</span> <span class="c x" data-c="Fa#"></span></div>
+<div class="l">una <span class=c data-c="Si-">goccia</span> che, <span class=w><span class=c data-c="Do#-">in</span> mano</span> a <span class="c x" data-c="Re">Te,</span></div>
+<div class="l">una <span class=w><span class=c data-c="Re7+">pioggia</span> di<span class="c x" data-c="Si-">ven</span><span class=c data-c="Do#-">terà</span> e</span> la <span class=w><span class=c data-c="Re">terra</span> feconde<span class="c x" data-c="La">rà.</span></span></div>
+<br>
+<div class=t>Rit.</div>
+<div class="l r"><span class=c data-c="La">Ecco</span> quel che <span class=w>ab<span class=c data-c="La7+">biamo</span> nulla</span> <span class=w><span class=c data-c="Re">ci</span> appartiene</span> <span class=w>or<span class="c x" data-c="La">mai</span></span></div>
+<div class="l r">ecco i <span class=w><span class=c data-c="Fa#-">frutti</span> della</span> <span class=w><span class=c data-c="Do#-7">terra</span> che</span> tu <span class=w><span class=c data-c="Re">moltipliche</span><span class="c x" data-c="Mi">rai.</span></span></div>
+<div class="l r"><span class=c data-c="La">Ecco</span> queste <span class=w><span class=c data-c="La7+">mani,</span> puoi</span> <span class=c data-c="Re">usarle</span> se lo <span class="c x" data-c="La">vuoi</span></div>
+<div class="l r">per <span class=w>di<span class=c data-c="Fa#-">videre</span></span> nel <span class=c data-c="Do#-7">mondo</span> il pane <span class=w><span class=c data-c="Re">che</span> tu</span> hai <span class=w><span class=c data-c="Mi">dato</span> a</span> <span class="c x" data-c="La">noi.</span></div>
+<br>
+<div class="l"><span class=w><span class=c data-c="Fa#-">Le</span> nostre</span> gocce, pioggia <span class=w><span class=c data-c="Do#-">fra</span> le mani</span> tue,</div>
+<div class="l"><span class=w><span class=c data-c="Do#-7b5">saranno</span> linfa</span> di una <span class=c data-c="Fa#4">nuova</span> <span class=w>ci<span class="c x" data-c="Fa#">viltà</span></span> <span class="c x" data-c="Si-">ah</span> <span class="c x" data-c="Mi">ah</span> <span class="c x" data-c="Do#-">ah</span> <span class="c x" data-c="Fa#4">ah</span> <span class="c x" data-c="Fa#"></span></div>
+<div class="l">e la <span class=w><span class=c data-c="Si-">terra</span> pre<span class=c data-c="Do#-">parerà</span></span> <span class="c x" data-c="Re"></span></div>
+<div class="l">la <span class=w><span class=c data-c="Re7+">festa</span> del</span> <span class="c x" data-c="Si-">pane</span> <span class=w><span class=c data-c="Do#-">che</span> ogni</span> <span class=c data-c="Re">uomo</span> <span class=w>condivide<span class="c x" data-c="La">rà.</span></span></div>
+<br>
+<div class=t>Rit.</div>
+<div class="l r"><span class=c data-c="La">Ecco</span> quel che <span class=w>ab<span class=c data-c="La7+">biamo</span> nulla</span> <span class=w><span class=c data-c="Re">ci</span> appartiene</span> <span class=w>or<span class="c x" data-c="La">mai</span></span></div>
+<div class="l r">ecco i <span class=w><span class=c data-c="Fa#-">frutti</span> della</span> <span class=w><span class=c data-c="Do#-7">terra</span> che</span> tu <span class=w><span class=c data-c="Re">moltipliche</span><span class="c x" data-c="Mi">rai.</span></span></div>
+<div class="l r"><span class=c data-c="La">Ecco</span> queste <span class=w><span class=c data-c="La7+">mani,</span> puoi</span> <span class=c data-c="Re">usarle</span> se lo <span class="c x" data-c="La">vuoi</span></div>
+<div class="l r">per <span class=w>di<span class=c data-c="Fa#-">videre</span></span> nel <span class=c data-c="Do#-7">mondo</span> il pane <span class=w><span class=c data-c="Re">che</span> tu</span> hai <span class=w><span class=c data-c="Mi">dato</span> a</span> <span class="c x" data-c="La">noi.</span></div>
+<br>
+<div class="l"><span class=c data-c="La">Sulle</span> strade, il <span class=w><span class=c data-c="La7+">vento</span> da</span> <span class=w>lon<span class=c data-c="Re">tano</span> porte<span class="c x" data-c="La">rà</span></span></div>
+<div class="l">il <span class=w>pro<span class=c data-c="Fa#-">fumo</span> del</span> <span class=w>fru<span class=c data-c="Do#-7">mento,</span></span> che <span class=w><span class=c data-c="Re">tutti</span> avvolge<span class="c x" data-c="Mi">rà.</span></span></div>
+<div class="l"><span class=w><span class=c data-c="La">E</span> sarà</span> <span class=w>l'a<span class=c data-c="La7+">more</span> che</span> il <span class=w>rac<span class=c data-c="Re">colto</span> sparti<span class="c x" data-c="La">rà</span></span></div>
+<div class="l">e il <span class=w>mi<span class=c data-c="Fa#-">racolo</span></span> del <span class=w><span class=c data-c="Do#-7">pane</span> in</span> terra <span class=w><span class="c x" data-c="Re">si ri</span><span class="c x" data-c="Mi">pete</span><span class="c x" data-c="La">rà.</span></span></div>
+<footer>Testi e musiche dei rispettivi autori · uso liturgico</footer>
+</body></html>
