@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang=it data-r="../"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="noindex,nofollow"><link rel=icon href="data:,"><title>Dove due o tre</title><style>
+html{color-scheme:light dark;--c:#b0201a;--bg:#fff;--fg:#151515;--n:#1a5fd0;-webkit-text-size-adjust:100%;
+ font:17px/1.3 system-ui,sans-serif;font:calc(clamp(17px,4.2vw,24px)*var(--z,1))/1.3 system-ui,-apple-system,sans-serif}
+@media(prefers-color-scheme:dark){html{--c:#ff8a7a;--bg:#121212;--fg:#e6e6e6;--n:#7aa7ff}}
+body{max-width:36em;margin:auto;padding:0 .7em 1em;background:var(--bg);color:var(--fg)}
+a{color:inherit}h1{font-size:1.35em;line-height:1.2;margin:.5em 0 .15em}h2{font-size:1.05em;margin:1.2em 0 .3em}
+.m{font-size:.8em;opacity:.8;margin:0 0 .8em}
+.l{padding-left:1em;text-indent:-1em}.c{display:inline-block;text-indent:0}
+.c::before{content:attr(data-c);display:block;width:0;white-space:nowrap;color:var(--c);
+ font:700 .85em/1.1 system-ui,sans-serif}
+.x::before{width:auto;padding-right:.3em}
+.c::after{content:"\200b"}.a .c::after{content:none}.w{display:inline-block;text-indent:0}
+.r{margin-left:1.2em}.t{font-weight:700;margin-top:.3em}.k{font-style:italic;opacity:.8}
+.g{font-weight:700;font-size:.85em;word-spacing:.4em}
+b,strong{color:var(--c)}b{white-space:nowrap}
+.nc .c::before,.nc .a,.nc .h{display:none}.nc [data-x=a]{opacity:.5;text-decoration:line-through}
+.bar{position:sticky;top:0;z-index:1;display:flex;flex-wrap:wrap;align-items:center;padding:6px 0;
+ background:var(--bg);border-bottom:1px solid #8884;font:14px/1.2 system-ui,sans-serif}
+.bar a,.bar button,#pr p button,#ap button{color:inherit;background:none;border:1px solid #8888;border-radius:6px;padding:8px 6px;
+ font:inherit;text-decoration:none;touch-action:manipulation}
+.bar a{margin-right:auto}.bar button,.bar b{margin-left:4px}
+.bar b{display:inline-block;min-width:2.2em;text-align:center}
+input{box-sizing:border-box;width:100%;font:17px system-ui,sans-serif;padding:.4em;margin:.3em 0}
+ul{list-style:none;padding:0;margin:0}[hidden]{display:none}
+li{display:flex;border-bottom:1px solid #8883}li a{flex:1;padding:.35em 0;text-decoration:none}
+[data-p]{color:var(--c);background:none;border:0;font:inherit;padding:.35em .5em .35em 0;opacity:.45;
+ cursor:pointer;touch-action:manipulation}
+h1 [data-p]{padding:0 .3em 0 0}[aria-pressed=true]{opacity:1}
+#qr svg{display:block;width:80vw;max-width:300px;margin:.5em 0}#nx{margin-top:1.5em;font-weight:700}
+footer{margin-top:2em;font-size:.75em;opacity:.6}
+.lib{font-weight:700;margin:-.4em 0 .8em}.lib span{display:block}.ls .lib span,#nol{display:none}
+.ls .lib .on,.ls #nol.on{display:block}
+#lib label{display:block;padding:.3em 0}#lib input{width:auto;margin-right:.5em}#ap input{width:auto}
+#ink{position:absolute;top:0;left:0;width:100%;z-index:0;pointer-events:none;fill:none;stroke:var(--n);
+ stroke-width:.1em;stroke-linecap:round;stroke-linejoin:round}
+.ink #ink{pointer-events:auto;touch-action:none}.ink body{-webkit-user-select:none;user-select:none}
+.bar .n{display:none}.ink .bar .n{display:block}.bar [aria-pressed=true]{background:#8884}
+.bar [data-x=n]{color:var(--n);border:2px solid var(--n);padding:4px 12px}.bar [data-x=n][aria-pressed=true]{background:var(--n);color:var(--bg)}
+.bar [data-x=n] svg{display:block;width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2.2;
+ stroke-linejoin:round;stroke-linecap:round;pointer-events:none}
+</style><script>
+var d=document.documentElement,st,wl,ink,gom,S=[],R=[],L=[],g,em,x0,mo,pid,sy,cur,Q,A,P,lx,ly,last,pz,pt,D;
+function load(){try{st=JSON.parse(localStorage.getItem('canti'))||{}}catch(e){st={}}}
+function show(){d.className=(st.nc?'nc':'')+(st.lib?' ls':'')+(ink?' ink':'');d.style.setProperty('--z',st.z||1);draw()}
+function save(){try{localStorage.setItem('canti',JSON.stringify(st))}catch(e){}}
+load();show();
+function idx(s){for(var j=0;st.pref&&j<st.pref.length;j++)if(st.pref[j][0]==s)return j;return -1}
+function link(){return location.href.split('#')[0]+'#p='+st.pref.map(function(x){return x[0]}).join(',')}
+function star(s){return document.querySelector('#az+ul [data-p="'+s+'"]')}
+function pref(){
+ var p=st.pref||[],u=document.getElementById('pref'),n=document.getElementById('nx'),b,j,k;
+ if(u){u.innerHTML='';
+  for(j=0;j<p.length;j++)if(k=star(p[j][0])){k=k.parentNode.cloneNode(true);k.hidden=false;u.appendChild(k)}
+  document.getElementById('pr').hidden=!p.length;document.getElementById('qr').hidden=true}
+ b=document.querySelectorAll('[data-p]');
+ for(j=0;j<b.length;j++){k=idx(b[j].getAttribute('data-p'))>=0;b[j].textContent=k?'★':'☆';b[j].setAttribute('aria-pressed',k)}
+ if(n){j=idx(document.querySelector('h1 [data-p]').getAttribute('data-p'));k=j>=0&&p[j+1];n.hidden=!k;
+  if(k){n.firstChild.href='../'+k[0]+'/';n.firstChild.textContent='Successivo: '+k[1]+' →'}}}
+function imp(){var h=/^#p=([a-z0-9,-]+)$/.exec(location.hash),r=[];
+ if(h&&document.getElementById('pref')){
+  h[1].split(',').forEach(function(s){var k=star(s);if(k)r.push([s,k.nextSibling.textContent])});
+  history.replaceState(null,'',location.pathname+location.search);
+  if(r.length&&(!st.pref||confirm('Sostituire i tuoi preferiti con i '+r.length+' canti del link?'))){st.pref=r;save()}}
+ pref()}
+addEventListener('hashchange',imp);
+addEventListener('pageshow',function(e){if(e.persisted){load();show();pref()}});
+function lock(){if(!wl&&navigator.wakeLock&&document.visibilityState=='visible')navigator.wakeLock.request('screen')
+ .then(function(l){wl=l;l.onrelease=function(){wl=null}},function(){})}
+function db(f,k){if(D)return tx(f,k);try{var r=indexedDB.open('canti',1);
+ r.onupgradeneeded=function(){r.result.createObjectStore('note')};r.onerror=nodb;
+ r.onsuccess=function(){D=r.result;tx(f,k)}}catch(e){nodb()}}
+// una connessione per pagina; se il browser l'ha chiusa (Safari dopo lo standby) la si riapre, una volta
+function tx(f,k){var t;try{t=D.transaction('note','readwrite')}catch(e){D=0;return k?nodb():db(f,1)}
+ t.onerror=nodb;f(t.objectStore('note'))}
+function msg(t){document.getElementById('aps').textContent=t}
+function cn(n){return n+(n==1?' canto':' canti')}
+function nodb(){var b=document.querySelector('[data-x=n]');if(b&&!b.title){b.innerHTML+='!';b.title='Appunti non salvabili in questo browser'}
+ if(document.getElementById('aps'))msg('Appunti non disponibili in questo browser')}
+function slug(){return document.querySelector('h1 [data-p]').getAttribute('data-p')}
+function put(){var k=slug();if(!pz&&navigator.storage&&navigator.storage.persist){pz=1;navigator.storage.persist()}
+ db(function(o){S.length?o.put(S,k):o['delete'](k)})}
+function chars(e,f){var w=document.createTreeWalker(e,4,null,false),r=document.createRange(),n,o,i=0;
+ while(n=w.nextNode())for(o=0;o<n.length;o++,i++){r.setStart(n,o);r.setEnd(n,o+1);if(f(r,i))return r}}
+function gap(v,a,b){return v<a?a-v:v>b?v-b:0}
+function anchor(x,y){var j,b,v,m=1e9,n=-1,li=-1,ci=-1;
+ for(j=0;j<L.length;j++)if(L[j].offsetParent){b=L[j].getBoundingClientRect();v=gap(y,b.top,b.bottom);if(v<m){m=v;n=li=j}}
+ m=1e9;  // la lettera più vicina anche nelle righe accanto: un segno nella fascia accordi può riguardare il testo sopra
+ for(j=Math.max(n-1,0);n>=0&&j<=n+1&&j<L.length;j++)if(L[j].offsetParent&&L[j].className.charAt(0)=='l')
+  chars(L[j],function(r,i){var b=r.getBoundingClientRect(),v;
+   if(b.width||b.height){v=Math.pow(gap(x,b.left,b.right),2)+Math.pow(gap(y,b.top,b.bottom),2);if(v<m){m=v;li=j;ci=i}}});
+ return [li,ci]}
+function pos(a){var e=L[a[0]],r,b;if(!e||!e.offsetParent)return;
+ r=a[1]>=0&&chars(e,function(r,i){return i==a[1]});b=(r||e).getBoundingClientRect();
+ return [(r?b.left:x0)+pageXOffset,b.bottom+pageYOffset]}
+function geo(){em=parseFloat(getComputedStyle(d).fontSize);x0=document.querySelector('h1').getBoundingClientRect().left}
+function dd(q){var s='M'+q[0]+' '+q[1],i,n=q.length;if(n==2)return s+' '+q[0]+' '+q[1];  // un punto: zero lungo, cap tondo
+ for(i=2;i<n-2;i+=2)s+='Q'+q[i]+' '+q[i+1]+' '+((q[i]+q[i+2])/2).toFixed(2)+' '+((q[i+1]+q[i+3])/2).toFixed(2);  // curva per i punti medi
+ return s+'L'+q[n-2]+' '+q[n-1]}
+function draw(){if(!g)return;var j,k,s,a,q,h='';geo();R=[];
+ for(j=0;j<S.length;j++){s=S[j];a=pos(s.a);q=[];
+  for(k=0;a&&k<s.p.length;k+=2)q.push(Math.round((a[0]+s.p[k]*em)*10)/10,Math.round((a[1]+s.p[k+1]*em)*10)/10);
+  R.push(q);if(q.length)h+='<path d="'+dd(q)+'"/>'}
+ g.innerHTML=h;g.style.height=0;g.style.height=d.scrollHeight+'px'}
+function add(x,y){if(Q.length&&Math.abs(x-lx)<1&&Math.abs(y-ly)<1)return;  // sotto il pixel: solo peso
+ cur.p.push(Math.round((x-A[0])/em*100)/100,Math.round((y-A[1])/em*100)/100);
+ Q.push(Math.round(x*10)/10,Math.round(y*10)/10);lx=x;ly=y}
+function erase(x,y){var j,k,c,r=.4*em;
+ for(j=S.length-1;j>=0;j--)for(k=0;k<R[j].length;k+=2)if(Math.abs(R[j][k]-x)<r&&Math.abs(R[j][k+1]-y)<r){S.splice(j,1);c=1;break}
+ if(c){draw();put()}}
+if('serviceWorker'in navigator&&location.protocol=='https:')addEventListener('load',function(){
+ navigator.serviceWorker.register(d.getAttribute('data-r')+'sw.js').catch(function(){})});
+document.addEventListener('DOMContentLoaded',function(){
+ var q=document.getElementById('q'),li=document.querySelectorAll('[data-i]'),ch=document.querySelectorAll('.c,b'),t=0,i;
+ if(q)q.oninput=function(){
+  var v=q.value.toLowerCase().normalize('NFD').replace(/[^a-z0-9 ]/g,'').replace(/ +/g,' ');
+  document.getElementById('m').hidden=!!v;
+  for(i=0;i<li.length;i++)li[i].hidden=li[i].getAttribute('data-i').indexOf(v)<0};
+ var sp=document.querySelectorAll('.lib [data-l]'),cb=document.querySelectorAll('[data-lib]'),k=0;
+ for(i=0;i<sp.length;i++)if(!st.lib||st.lib.indexOf(sp[i].getAttribute('data-l'))>=0){sp[i].className='on';k++}
+ if(st.lib&&!k&&document.getElementById('nol'))document.getElementById('nol').className='on';
+ for(i=0;i<cb.length;i++){cb[i].checked=!!st.lib&&st.lib.indexOf(cb[i].getAttribute('data-lib'))>=0;
+  cb[i].onchange=function(){var s=[],j;for(j=0;j<cb.length;j++)if(cb[j].checked)s.push(cb[j].getAttribute('data-lib'));
+   st.lib=s.length?s:undefined;save();show()}}
+ imp();
+ document.addEventListener('click',function(e){
+  var t=e.target,s=t.getAttribute&&t.getAttribute('data-p'),q=document.getElementById('qr'),c,j;
+  if(s){j=idx(s);if(j<0)(st.pref=st.pref||[]).push([s,t.nextSibling.textContent]);else st.pref.splice(j,1)}
+  else if(t.id=='sv'){if(!confirm('Togliere tutti i preferiti?'))return;st.pref=[]}
+  else if(t.id=='cd'){
+   if(navigator.share)navigator.share({title:'Canti',url:link()}).catch(function(){});
+   else if(navigator.clipboard)navigator.clipboard.writeText(link()).then(function(){t.textContent='Link copiato'});
+   return}
+  else if(t.id=='qrb'&&window.qrcode){
+   if(q.hidden){c=qrcode(0,'M');c.addData(link());c.make();q.innerHTML=c.createSvgTag({cellSize:4,scalable:true})}
+   q.hidden=!q.hidden;return}
+  else return;
+  if(!st.pref.length)st.pref=undefined;
+  save();pref()});
+ var ex=document.getElementById('ex'),im=document.getElementById('imp');
+ if(ex){ex.onclick=function(){var o={},n=0;db(function(s){s.openCursor().onsuccess=function(e){var c=e.target.result,a;
+   if(c){o[c.key]=c.value;n++;c['continue']();return}
+   if(!n)return msg('Nessun appunto da esportare');
+   a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(o)],{type:'application/json'}));
+   a.download='appunti-canti-'+new Date().toISOString().slice(0,10)+'.json';document.body.appendChild(a);a.click();
+   msg('Esportati gli appunti di '+cn(n))}})};
+  im.onchange=function(){var r=new FileReader(),f=im.files[0];if(!f)return;
+   r.onload=function(){var o,k,ok=[];try{o=JSON.parse(r.result)}catch(e){}
+    for(k in o)if(/^[a-z0-9-]+$/.test(k)&&o[k]instanceof Array&&star(k))ok.push(k);
+    im.value='';
+    if(!ok.length)return msg('Nel file non ci sono appunti di questi canti');
+    if(confirm('Importare gli appunti di '+cn(ok.length)+'? Per gli stessi canti sostituiscono quelli presenti.'))
+     db(function(s){ok.forEach(function(k){s.put(o[k].filter(function(x){return x&&x.a instanceof Array&&x.p instanceof Array}),k)});
+      msg('Importati gli appunti di '+cn(ok.length))})};
+   r.readAsText(f)}}
+ if(!window.T)return;
+ lock();document.addEventListener('visibilitychange',lock);
+ for(i=0;i<ch.length;i++)ch[i].o=ch[i].getAttribute('data-c')||ch[i].textContent;
+ g=document.createElementNS('http://www.w3.org/2000/svg','svg');g.id='ink';document.body.appendChild(g);
+ L=document.querySelectorAll('.l,.k,.t,.g');
+ db(function(o){var r=o.get(slug());r.onsuccess=function(){S=(r.result||[]).concat(S);draw()}});
+ addEventListener('resize',draw);
+ // il palmo: un tocco mentre la penna scrive o le sta vicino (hover, o meno di 1 s dall'ultimo segno) non conta
+ g.onpointerdown=function(e){var p=e.pointerType,x,y,a,t=Date.now();
+  if(p=='touch'&&(mo==2||t-pt<1000)||e.button&&e.button!=5)return;  // e il tasto destro
+  if(p=='pen'){pt=t;if(!st.pen){st.pen=1;save()}}
+  pid=e.pointerId;g.setPointerCapture(pid);
+  if(p=='touch'&&st.pen){mo=1;sy=e.clientY;return}
+  geo();x=e.clientX+pageXOffset;y=e.clientY+pageYOffset;
+  if(gom||e.buttons&32){mo=3;erase(x,y);return}
+  mo=2;
+  // ponytail: la penna che perde il contatto per meno di 100 ms riprende lo stesso tratto (se no linee spezzate)
+  if(p=='pen'&&last&&t-last[0]<100&&Math.abs(x-lx)<.6*em&&Math.abs(y-ly)<.6*em&&S[S.length-1]==cur&&P.parentNode){S.pop();R.pop()}
+  else{a=last&&t-last[0]<1500&&Math.abs(x-last[1])<4*em&&Math.abs(y-last[2])<3*em?last[3]:anchor(e.clientX,e.clientY);
+   A=pos(a);if(!A){mo=0;return}
+   cur={a:a,p:[]};Q=[];P=document.createElementNS('http://www.w3.org/2000/svg','path');g.appendChild(P)}
+  add(x,y);P.setAttribute('d',dd(Q))};
+ // un solo ridisegno per evento (non per punto) e la punta prevista (Chrome) per ridurre il ritardo
+ g.onpointermove=function(e){var l,j,q;if(e.pointerType=='pen')pt=Date.now();
+  if(e.pointerId!=pid||!mo)return;
+  if(mo==1){scrollBy(0,sy-e.clientY);sy=e.clientY;return}
+  l=e.getCoalescedEvents&&e.getCoalescedEvents()||[];if(!l.length)l=[e];
+  for(j=0;j<l.length;j++)(mo==2?add:erase)(l[j].clientX+pageXOffset,l[j].clientY+pageYOffset);
+  if(mo!=2)return;
+  l=e.getPredictedEvents&&e.getPredictedEvents()||[];q=Q.slice();
+  for(j=0;j<l.length;j++)q.push(Math.round(l[j].clientX+pageXOffset),Math.round(l[j].clientY+pageYOffset));
+  P.setAttribute('d',dd(q))};
+ g.onpointerup=g.onpointercancel=function(e){if(e.pointerId!=pid)return;if(e.pointerType=='pen')pt=Date.now();
+  if(mo==2){P.setAttribute('d',dd(Q));S.push(cur);R.push(Q);last=[Date.now(),lx,ly,cur.a];put()}mo=0};
+ document.addEventListener('click',function(e){
+  var x=e.target.getAttribute&&e.target.getAttribute('data-x');
+  lock();
+  if(x=='a')st.nc=!st.nc;
+  else if(x=='zm'||x=='zp')st.z=Math.min(2,Math.max(.7,Math.round((st.z||1)*10+(x=='zp'?1:-1))/10));
+  else if(x=='m'||x=='p'){
+   t=(t+(x=='p'?1:11))%12;
+   for(i=0;i<ch.length;i++){var c=ch[i],v=T[c.o];if(v)c.tagName=='B'?c.textContent=v[t]:c.setAttribute('data-c',v[t])}
+   draw();return}  // gli accordi larghi (span x) cambiano larghezza
+  else if(x=='n'||x=='e'){if(x=='n'){ink=!ink;gom=0}else gom=!gom;
+   e.target.parentNode.querySelector('[data-x=n]').setAttribute('aria-pressed',!!ink);
+   e.target.parentNode.querySelector('[data-x=e]').setAttribute('aria-pressed',!!gom);show();return}
+  else if(x=='u'){S.pop();draw();put();return}
+  else if(x=='k'){if(S.length&&confirm('Cancellare tutti gli appunti di questo canto?')){S=[];draw();put()}return}
+  else return;
+  save();show()})});
+</script><script>T={"(La)": ["(La)", "(Sib)", "(Si)", "(Do)", "(Do#)", "(Re)", "(Mib)", "(Mi)", "(Fa)", "(Fa#)", "(Sol)", "(Sol#)"], "(Si)": ["(Si)", "(Do)", "(Do#)", "(Re)", "(Re#)", "(Mi)", "(Fa)", "(Fa#)", "(Sol)", "(Sol#)", "(La)", "(La#)"], "(Sol)": ["(Sol)", "(Lab)", "(La)", "(Sib)", "(Si)", "(Do)", "(Reb)", "(Re)", "(Mib)", "(Mi)", "(Fa)", "(Fa#)"], "Do": ["Do", "Reb", "Re", "Mib", "Mi", "Fa", "Solb", "Sol", "Lab", "La", "Sib", "Si"], "Do#-": ["Do#-", "Re-", "Re#-", "Mi-", "Fa-", "Solb-", "Sol-", "Sol#-", "La-", "La#-", "Si-", "Do-"], "Fa": ["Fa", "Solb", "Sol", "Lab", "La", "Sib", "Si", "Do", "Reb", "Re", "Mib", "Mi"], "Fa#": ["Fa#", "Sol", "Sol#", "La", "La#", "Si", "Do", "Do#", "Re", "Re#", "Mi", "Fa"], "La": ["La", "Sib", "Si", "Do", "Do#", "Re", "Mib", "Mi", "Fa", "Fa#", "Sol", "Sol#"], "La-": ["La-", "Sib-", "Si-", "Do-", "Do#-", "Re-", "Mib-", "Mi-", "Fa-", "Fa#-", "Sol-", "Sol#-"], "Mi": ["Mi", "Fa", "Fa#", "Sol", "Sol#", "La", "Sib", "Si", "Do", "Do#", "Re", "Re#"], "Re": ["Re", "Mib", "Mi", "Fa", "Fa#", "Sol", "Lab", "La", "Sib", "Si", "Do", "Do#"], "Si": ["Si", "Do", "Do#", "Re", "Re#", "Mi", "Fa", "Fa#", "Sol", "Sol#", "La", "La#"], "Si-": ["Si-", "Do-", "Do#-", "Re-", "Re#-", "Mi-", "Fa-", "Fa#-", "Sol-", "Sol#-", "La-", "La#-"], "Sol": ["Sol", "Lab", "La", "Sib", "Si", "Do", "Reb", "Re", "Mib", "Mi", "Fa", "Fa#"], "Sol#": ["Sol#", "La", "La#", "Si", "Do", "Reb", "Re", "Re#", "Mi", "Fa", "Solb", "Sol"]}</script></head>
+<body>
+<nav class=bar><a href="../">← Indice</a><button data-x=a aria-label="Mostra o nascondi gli accordi">Accordi</button><span class=h><button data-x=m aria-label="Giù di mezzo tono">−½</button><b>Do</b><button data-x=p aria-label="Su di mezzo tono">+½</button></span><button data-x=zm aria-label="Testo più piccolo">A−</button><button data-x=zp aria-label="Testo più grande">A+</button><button data-x=n aria-label="Scrivi con la penna" aria-pressed=false><svg viewBox="0 0 24 24"><path d="M16 3.5l4.5 4.5L8 20.5l-5.5 1 1-5.5zM13.5 6l4.5 4.5"/></svg></button><button data-x=u class=n>Annulla</button><button data-x=e class=n aria-pressed=false>Gomma</button><button data-x=k class=n>Cancella</button></nav>
+<h1><button data-p="dove-due-o-tre" aria-label="Preferito">☆</button>Dove due o tre</h1>
+<p class=m>Tonalità Do · Ingresso<br><a href="dove-due-o-tre.pdf">Scarica PDF</a></p>
+<p class=lib><span data-l="collebeato">Libretto Collebeato · n. 92 · pag. 31</span><span id=nol>Non è nei tuoi libretti · <a href="../#lib">scegli</a></span></p>
+<div class="l"><span class=c data-c="Do">Dove</span> due o <span class=w><span class=c data-c="Sol">tre</span> sono</span> <span class=w>u<span class=c data-c="La-">niti</span> nel</span> mio <span class=w>no<span class="c x" data-c="Fa">me,</span></span></div>
+<div class="l">io <span class=w><span class=c data-c="Sol">sarò</span> con</span> <span class="c x" data-c="Do">loro,</span> <span class=c data-c="Fa">pregherò</span> con <span class=w>lo<span class="c x" data-c="Sol">ro,</span></span></div>
+<div class="l"><span class=c data-c="Mi">amerò</span> con loro <span class=c data-c="La-">perché</span> il <span class=w>mon<span class=c data-c="Do">do</span> creda</span> a <span class="c x" data-c="Fa">Te.</span></div>
+<div class="l">o <span class=c data-c="Sol">Padre,</span> <span class=w>cono<span class=c data-c="Do">scere</span></span> il tuo <span class=w>a<span class=c data-c="La-">more,</span></span> <span class=w>a<span class="c x" data-c="Fa">vere</span></span> <span class="c x" data-c="Sol">vita</span> <span class=w><span class=c data-c="Do">con</span> Te.</span> <span class="c x" data-c="(Sol)"></span></div>
+<br>
+<div class="l">Voi che ora siete miei discepoli nel mondo,</div>
+<div class="l">siate testimoni di un amore immenso,</div>
+<div class="l">date prova di quella speranza che c'è in voi:</div>
+<div class="l">Coraggio! Vi guiderò per sempre, io rimango con voi. <span class="c x" data-c="(La)"></span></div>
+<br>
+<div class="l"><span class=w><span class=c data-c="Re">Ogni</span> beati<span class=c data-c="La">tudine</span></span> vi <span class=w>at<span class=c data-c="Si-">tende</span></span> nel mio <span class=c data-c="Sol">nome,</span></div>
+<div class="l">se <span class=c data-c="La">sarete</span> <span class=w>u<span class="c x" data-c="Re">niti,</span></span> <span class=w><span class=c data-c="Sol">se</span> sarete</span> <span class=w>pa<span class="c x" data-c="La">ce.</span></span></div>
+<div class="l">se <span class=c data-c="Fa#">sarete</span> uniti <span class=c data-c="Si-">perché</span> voi <span class=c data-c="Re">vedete</span> <span class=w><span class=c data-c="Sol">Dio</span> che</span> è <span class=c data-c="La">pace,</span></div>
+<div class="l"><span class=w><span class=c data-c="Re">in</span> Lui</span> la nostra vita <span class="c x" data-c="Si-">gioia</span> <span class=c data-c="Sol">piena</span> <span class=w><span class="c x" data-c="La">sa</span><span class="c x" data-c="Re">rà!</span></span> <span class="c x" data-c="(Si)"></span></div>
+<br>
+<div class="l"><span class=c data-c="Mi">Spirito</span> che <span class=w>ani<span class=c data-c="Si">mi</span> la Chie<span class=c data-c="Do#-">sa</span> e la</span> <span class=w>rin<span class="c x" data-c="La">novi,</span></span></div>
+<div class="l"><span class=w>do<span class=c data-c="Si">nale</span> for<span class=c data-c="Mi">tezza,</span></span> <span class=w><span class=c data-c="La">fa'</span> che</span> sia fedele <span class=c data-c="Si">come</span> <span class=c data-c="Sol#">Cristo</span></div>
+<div class="l"><span class=w><span class=c data-c="Do#-">che</span> muore</span> e <span class=w>risor<span class=c data-c="Mi">ge,</span> perché</span> il <span class=c data-c="La">Regno</span> del <span class=c data-c="Si">Padre</span></div>
+<div class="l">si <span class=c data-c="Mi">compia</span> in <span class=c data-c="Do#-">mezzo</span> a voi: abbiate <span class=w><span class=c data-c="La">fede</span> in</span> <span class="c x" data-c="Si">Lui!</span> <span class="c x" data-c="Mi"></span></div>
+<p id=nx hidden><a></a></p>
+<footer>Testi e musiche dei rispettivi autori · uso liturgico</footer>
+</body></html>
